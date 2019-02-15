@@ -356,5 +356,5 @@ class Scene(object):
         """
         if(axis == None):
             axis = plt.gca()
-        axis.plot(self.__x, self.__y, 'k.', **kargs)
+        axis.plot(self._x, self._y, 'k.', **kargs)
         
