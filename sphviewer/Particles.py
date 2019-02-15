@@ -165,11 +165,11 @@ class Particles(object):
         if(axis == None):
             axis = plt.gca()
         if(plane == 'xy'):
-            axis.plot(self._pos[:,0], self._pos[:,0], 'k.', **kargs)
+            axis.plot(self._pos[:,0], self._pos[:,1], 'k.', **kargs)
         elif(plane == 'xz'):
-            axis.plot(self._pos[:,1], self._pos[:,2], 'k.', **kargs)
+            axis.plot(self._pos[:,0], self._pos[:,2], 'k.', **kargs)
         elif(plane == 'yz'):
-            axis.plot(self._pos[:,2], self._pos[:,2], 'k.', **kargs)
+            axis.plot(self._pos[:,1], self._pos[:,2], 'k.', **kargs)
 
     def __make_kdtree(self,pos):
         return KDTree(pos)
