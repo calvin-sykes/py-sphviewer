@@ -37,19 +37,19 @@ class Camera(object):
         return self.__params
     
     def set_params(self, **kargs):
-            for key in kargs:
-                self.__params[key] = kargs[key]
+        for key in kargs:
+            self.__params[key] = kargs[key]
 
     def _get_camera(self,plane, **kargs):
-        x0 = -self.__params['r']*(np.sin(self.__params['p']*np.pi/180.)*
+        x0 = self.__params['r']*(np.sin(self.__params['p']*np.pi/180.)*
                                  np.cos(self.__params['t']*np.pi/180.))
         z0 = self.__params['r']*(np.cos(self.__params['p']*np.pi/180.)*
                                 np.cos(self.__params['t']*np.pi/180.))
         y0 = self.__params['r']*np.sin(self.__params['t']*np.pi/180.)
         
-        xcam = self.__params['x']+x0
-        ycam = self.__params['y']+y0
-        zcam = self.__params['z']+z0
+        xcam = self.__params['x'] - x0
+        ycam = self.__params['y'] - y0
+        zcam = self.__params['z'] - z0
         
         
         if(plane == 'xy'):
